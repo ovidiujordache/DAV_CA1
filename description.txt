@@ -1,3 +1,20 @@
 Data Analysis and Visualization Module.
 CA1 50%. Due 28 April 2024
+links for datasets used in CA:
 
+#recorded_crime_incidents.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EYKqfi1gVrtKljic4s7h3MkB9Cw3laqAnzTvjjIrD6urWg?e=Lwz4sJ
+#expenditure_culture.csv
+ 	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EUmxpdo-669JvlV-MrVH2S0BHPXzrr46Nv7WhXYWInv-4Q?e=yUZp5E
+
+#difficulty_making_ends_meet.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EVV7KmqhCEFGgnBjegrtuAwB-2xftqJCIuFJtv260VheAQ?e=L0Una9
+
+#education_third_level.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EQkqk4w7oK1Ik0fbnz4JJFQB5yt9CmoSebOqAKUAJxS-kQ?e=RQVVKt
+	
+#live_register.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EW83WQKqZydBrgi2KX9lK0ABT1Tr85V14cUVhVRgtcyLyg?e=oMSrl9
+
+#poverty_rates.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ETeGJNoN24ZNs-VltHLTl5wBEvIQ3RH1d6Emilhe-J9vvQ?e=195KBn
