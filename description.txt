@@ -18,3 +18,12 @@ links for datasets used in CA:
 
 6.#poverty_rates.csv
 	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ETeGJNoN24ZNs-VltHLTl5wBEvIQ3RH1d6Emilhe-J9vvQ?e=195KBn
+
+
+Resources used :
+Copilot prompts:
+
+combine quarters of years for recorded_crime_incidents.csv
+delete rows which have more than this columns . number =6 columns name =STATISTIC Label	Quarter	Garda Division	Type of Offence	UNIT	VALUE
+
+Other resources:

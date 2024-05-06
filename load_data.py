@@ -1,15 +1,5 @@
 from __init__ import *
 '''
-Problem Statement.
-When ECONOMY IS DOWN [files:(live register, poverty rates)]  CRIME  IS  UP [files:(crimes_in_ireland)].
-Also when ECONOMY IS DOWN, CULTURE IS UP [files:(third_level_entrance,expenditure_on_culture)].
-When ECONOMY IS BOOMING CULTURE AND ART IS DOWN. As a vivid example, during the height of the Celtic Tiger in 2002, 
-a controversial and widely debated monument, "The Spire of Dublin," was constructed. 
-Conversely, at the decline of the Celtic Tiger around 2008-2009, the Samuel Beckett Bridge was built,
- showcasing another masterpiece from Santiago Calatrava.
-Aiming to find an index to show the relationship between 
-Economy, Crime, Unemployment, Poverty, College Admissions, Culture
-
 
 '''
 
@@ -35,23 +25,32 @@ education_third_level_file = '../data/education_third_level.csv'
 df_education_third_level = read_csv_file(education_third_level_file)
 
 
+expenditure_culture_file = '../data/expenditure_culture.csv'
+
+df_expenditure_culture = read_csv_file(expenditure_culture_file)
 
 #dataframe filtered
-df_poverty_rate_filtered = drop_rows(df_poverty_rate,'Year',2018,2019)
+df_poverty_rate_filtered = drop_rows(df_poverty_rate,'Year',2017,2019)
 #dataframe filtered
-df_education_third_level_filtered=drop_rows(df_education_third_level,'Year',2000,2008)
+df_education_third_level_filtered=drop_rows(df_education_third_level,'Year',2000,2007)
 
 
 check_filtering(df_poverty_rate_filtered, df_poverty_rate,2018)
-check_filtering(df_education_third_level_filtered, df_education_third_level, 2008)
+check_filtering(df_education_third_level_filtered, df_education_third_level, 20017)
+
+crime_rates_file = '../data/recorded_crime_incidents.csv'
+
+df_crime= aggregate_annual_data(crime_rates_file,"../data/filtered_crime.csv")
 
 
+printHead(df_poverty_rate_filtered,"Poverty Rates")
 
-def printHead(df):
-	if df is not None:
-   		 print(df.head())
-printHead(df_poverty_rate_filtered)
-printHead(df_education_third_level_filtered)
+printHead(df_education_third_level_filtered,"Eduction Third Level")
 
+printHead(df_crime,"'Crime Rates'")
 
+analyze_data(df_crime,"Total Crimes All Divisions")
+analyze_data(df_poverty_rate_filtered,"Poverty Rates")
+analyze_data(df_education_third_level_filtered,"Total Enrollments 3rd Level ")
+analyze_data(df_expenditure_culture,"Expenditure on Culture")
 

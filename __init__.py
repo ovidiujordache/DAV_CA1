@@ -42,4 +42,4 @@ __all__=[	"GoogleDrive",
 			"mplot3d",
 			"sch","squareform","pearsonr","linkage","dendrogram","cut_tree",
 			"make_blobs","AgglomerativeClustering","StandardScaler","KMeans","MinMaxScaler","adjusted_rand_score",
-			"check_filtering","drop_rows"];
+			"check_filtering","drop_rows","aggregate_annual_data","analyze_data","printHead"];
