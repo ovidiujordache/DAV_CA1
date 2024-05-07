@@ -59,3 +59,29 @@ analyze_data(df_education_third_level_filtered,"Total Enrollments 3rd Level ")
 analyze_data(df_expenditure_culture,"Expenditure on Culture")
 analyze_data(df_average_live_register,"Live Register")
 
+
+
+analyze_correlation(df_crime, df_average_live_register,
+                    'Year', 'VALUE',   
+                    'Year', 'VALUE',  
+                    'Total Crimes', 'Average Unemployed',"Correlation: Crime and Unemployment")
+analyze_correlation( df_crime,df_poverty_rate,
+                    'Year', 'VALUE',  
+                    'Year', 'VALUE',  
+                    'Total Crimes', 'Poverty Rates',"Correlation: Crime and Poverty Rate ")  
+
+analyze_correlation( df_crime,df_education_third_level_filtered,
+                    'Year', 'VALUE',  
+                    'Year', 'VALUE',  
+                    'Total Crimes', 'College Enrollment',"Correlation: Crime and College Enrollment")
+analyze_correlation( df_crime,df_expenditure_culture,
+                    'Year', 'VALUE',  
+                    'Year', 'VALUE',  
+                    'Total Crimes', 'Expenditure On Culture',"Correlation: Crime and Expenditure on Culture")    
+
+analyze_correlation(df_education_third_level_filtered, df_average_live_register,
+                    'Year', 'VALUE',  
+                    'Year', 'VALUE',  
+                    'College Enrollment', 'Unemployment',"Correlation: 3rd Level Enrollment and Unemployment")
+
+

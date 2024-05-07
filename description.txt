@@ -23,12 +23,14 @@ links for datasets used in CA:
 rows remove from recorded_crime_incidents.csv
 	- 111475, -98603,-14803,-54208,-59147
 
-Resources used :
+
+
 Copilot prompts:
 
 combine quarters of years for recorded_crime_incidents.csv
 delete rows which have more than this columns . number =6. columns name =STATISTIC Label	Quarter	Garda Division	Type of Offence	UNIT	VALUE
 select top 10 highest offences from csv file with columns year, offence type.
+how to create method to check correlation of two datasets.
 
 Other resources:
 

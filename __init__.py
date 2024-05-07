@@ -35,6 +35,7 @@ from sklearn.metrics import adjusted_rand_score
 
 from filter_data import *
 from crime_charts import *
+from correlation import *
 
 __all__=[	"GoogleDrive",
 			"plt","sb",
@@ -43,4 +44,5 @@ __all__=[	"GoogleDrive",
 			"mplot3d",
 			"sch","squareform","pearsonr","linkage","dendrogram","cut_tree",
 			"make_blobs","AgglomerativeClustering","StandardScaler","KMeans","MinMaxScaler","adjusted_rand_score",
-			"check_filtering","drop_rows","aggregate_annual_data","analyze_data","printHead","average_live_register","analyze_and_plot_crime_data"];
+			"check_filtering","drop_rows","aggregate_annual_data","analyze_data","printHead","average_live_register",
+			"analyze_and_plot_crime_data","analyze_correlation"];
