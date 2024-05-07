@@ -29,6 +29,8 @@ expenditure_culture_file = '../data/expenditure_culture.csv'
 
 df_expenditure_culture = read_csv_file(expenditure_culture_file)
 
+df_average_live_register=read_csv_file('../data/live_register_2008_2016.csv')
+df_average_live_register=average_live_register(df_average_live_register)
 #dataframe filtered
 df_poverty_rate_filtered = drop_rows(df_poverty_rate,'Year',2017,2019)
 #dataframe filtered
@@ -42,6 +44,8 @@ crime_rates_file = '../data/recorded_crime_incidents.csv'
 
 df_crime= aggregate_annual_data(crime_rates_file,"../data/filtered_crime.csv")
 
+file_path = '../data/recorded_crime_incidents.csv' 
+analyze_and_plot_crime_data(file_path)
 
 printHead(df_poverty_rate_filtered,"Poverty Rates")
 
@@ -53,4 +57,5 @@ analyze_data(df_crime,"Total Crimes All Divisions")
 analyze_data(df_poverty_rate_filtered,"Poverty Rates")
 analyze_data(df_education_third_level_filtered,"Total Enrollments 3rd Level ")
 analyze_data(df_expenditure_culture,"Expenditure on Culture")
+analyze_data(df_average_live_register,"Live Register")
 

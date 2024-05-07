@@ -6,5 +6,12 @@ a controversial and widely debated monument, "The Spire of Dublin," was construc
 Conversely, at the decline of the Celtic Tiger around 2008-2009, the Samuel Beckett Bridge was built,
  showcasing another masterpiece from Santiago Calatrava.
 Aiming to find an index to show the relationship between 
-Economy, Crime, Unemployment, Poverty, College Admissions, Culture
+Economy, Crime, Unemployment, Poverty, College Admissions, Culture and Art
 
+
+Hypothesis in laymen terms:
+ When poverty strikes, individuals face two options: the quick route of 
+ turning to crime to make ends meet, or the slower, more sustainable route through culture and education.
+ Both choices reflect personal decisions within society, rather than being driven primarly by a 
+ collective moral force. Clearly  "personal decisions" involve additional context,influenced 
+ by various factors(upbringing, educational background), which are beyond the scope of this report.

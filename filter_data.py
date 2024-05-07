@@ -25,24 +25,24 @@ def check_filtering(df_filtered, df_original, row_to_check):
             print(f"The Row {row_to_check} is still present in the DataFrame.")
         except IndexError:
             print(f"The Row {row_to_check} has been filtered out of the DataFrame.")
-import pandas as pd
+
 
 def aggregate_annual_data(file_path,save_path):
     try:
        
-        df = pd.read_csv(file_path, names=['STATISTIC Label', 'Quarter', 'Garda Division', 'Type of Offence', 'UNIT', 'VALUE'], header=None, on_bad_lines='skip')
+        df = pd.read_csv(file_path)
         df['VALUE'] = pd.to_numeric(df['VALUE'], errors='coerce')
-        # Drop rows with NaN in essential columns
-        df = df.dropna(subset=['STATISTIC Label', 'Quarter', 'Garda Division', 'Type of Offence', 'UNIT', 'VALUE'], how='any')
-        
-        # Extract year from 'Quarter' and safely convert to integer
-        df['Year'] = pd.to_numeric(df['Quarter'].str[:4], errors='coerce')
-        if df['Year'].isna().any():
-             print("NA values found in Year extraction:", df[df['Year'].isna()]['Quarter'])        
+        df['Year'] = pd.to_numeric(df['Year'], errors='coerce')
+  
+        # Drop any rows where conversion failed (if any)
+        df = df.dropna(subset=['Year', 'VALUE'])
+ 
+     
+          
     
         
         # Convert 'Year' to integer
-        df['Year'] = df['Year'].astype(int)
+        # df['Year'] = df['Year'].astype(int)
         
         # Filter data for the years 2008 to 2016 inclusive
         df = df[(df['Year'] >= 2008) & (df['Year'] <= 2016)]
@@ -84,6 +84,25 @@ def analyze_data(data,label):
 
 
     plt.show()
+def average_live_register(data):
+
+    data['Year'] = data['Month'].apply(lambda x: x.split()[0])
+
+
+    yearly_average = data.groupby('Year')['VALUE'].mean().reset_index()
+
+
+    yearly_average.columns = ['Year', 'VALUE']
+
+
+    yearly_average['STATISTIC Label'] = 'Average Persons on Live Register'
+
+    yearly_average = yearly_average[['STATISTIC Label', 'Year', 'VALUE']]
+
+    output_path = '../data/average_live_register_2008_2016.csv'
+    yearly_average.to_csv(output_path, index=False)
+
+    return yearly_average
 
 
 def printHead(df, description=""):
