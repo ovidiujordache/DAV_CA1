@@ -15,3 +15,23 @@ Hypothesis in laymen terms:
  Both choices reflect personal decisions within society, rather than being driven primarly by a 
  collective moral force. Clearly  "personal decisions" involve additional context,influenced 
  by various factors(upbringing, educational background), which are beyond the scope of this report.
+
+ There is a very poor correlation between Crime and Live Register.(Unemployed) -0.06.
+ Have to look for more data or different data.
+ ### Top Crimes between 2008-2016
+ ![Alt text](./images/top_crimes.png?raw=true)
+
+ ### Total No Of Crimes 2008-2016
+ ![Alt text](./images/total_crimes.png?raw=true)
+
+ ### Live Register 2008-1016
+ ![Alt text](./images/live_register.png?raw=true)
+
+ ### Poverty Rates 2008-2016
+ ![Alt text](./images/poverty_rates.png?raw=true)
+
+ ### Enrollment in 3rd Level Institutions 2008-2016
+ ![Alt text](./images/total_enrollement.png?raw=true)
+
+ ### Expenditure on Culture 2008-2016
+ ![Alt text](./images/expenditre_culture.png?raw=true)
