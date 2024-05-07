@@ -18,6 +18,7 @@ Hypothesis in laymen terms:
 
  There is a very poor correlation between Crime and Live Register.(Unemployed) -0.06.
  Have to look for more data or different data.
+
  ### Top Crimes between 2008-2016
  ![Alt text](./images/top_crimes.png?raw=true)
 
@@ -34,4 +35,4 @@ Hypothesis in laymen terms:
  ![Alt text](./images/total_enrollement.png?raw=true)
 
  ### Expenditure on Culture 2008-2016
- ![Alt text](./images/expenditre_culture.png?raw=true)
+ ![Alt text](./images/expenditure_culture.png?raw=true)
