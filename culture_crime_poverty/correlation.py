@@ -27,10 +27,11 @@ def analyze_correlation(data1, data2, year_col1, value_col1, year_col2, value_co
 
         # Plotting
         plt.figure(figsize=(10, 6))
-        sb.scatterplot(x=rename_col2, y=rename_col1, data=combined_data)
-        plt.title(title)
-        plt.xlabel(rename_col2)
-        plt.ylabel(rename_col1)
+        sb.scatterplot(x=rename_col2, y=rename_col1, data=combined_data,color='green')
+        plt.title(title,color='red')
+
+        plt.xlabel(rename_col2,color='magenta')
+        plt.ylabel(rename_col1,color='blue')
         plt.grid(True)
         plt.show()
 

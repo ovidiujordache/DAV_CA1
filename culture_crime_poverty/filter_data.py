@@ -63,11 +63,10 @@ def analyze_data(data,label):
     # Summary Statistics
     print(data.groupby('Year')['VALUE'].describe())
 
-    # Total annual values
+
     total_values = data.groupby('Year')['VALUE'].sum()
     print(total_values)
 
-    # Visualize the trend over the years
     ax=total_values.plot(kind='line', marker='o', title=f"{label}")
     ax.title.set_color('red')
     ax.title.set_fontsize(16)
@@ -99,7 +98,7 @@ def average_live_register(data):
 
     yearly_average = yearly_average[['STATISTIC Label', 'Year', 'VALUE']]
 
-    output_path = '../data/average_live_register_2008_2016.csv'
+    output_path = '../../data/average_live_register_2008_2016.csv'
     yearly_average.to_csv(output_path, index=False)
 
     return yearly_average
