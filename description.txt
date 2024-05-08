@@ -31,6 +31,8 @@ combine quarters of years for recorded_crime_incidents.csv
 delete rows which have more than this columns . number =6. columns name =STATISTIC Label	Quarter	Garda Division	Type of Offence	UNIT	VALUE
 select top 10 highest offences from csv file with columns year, offence type.
 how to create method to check correlation of two datasets.
+check covariance
+covariance heatmap 
 
 Other resources:
 
