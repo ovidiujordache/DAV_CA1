@@ -94,28 +94,27 @@ def linear_regression(file, x_, y_):
 
 
 def simple_linear_regression(file,x_,y_):
-    # Load the data
+
     data = pd.read_csv(file)
     
-    # Ensure the data contains the necessary columns
+   
     if x_ not in data.columns or y_ not in data.columns:
         print(f"The columns{x_} or/and {y_} are not present in the dataset.")
         return
 
-    # Define the predictor (independent) and response (dependent) variables
-    X = data[x_]  # Predictor variable
-    y = data[y_]  # Dependent variable
+    
+    X = data[x_]  
+    y = data[y_]  
 
-    # Add a constant to the model (the intercept)
+  
     X = sm.add_constant(X)
 
-    # Create a model object
+
     model = sm.OLS(y, X)
 
-    # Fit the model
+
     results = model.fit()
 
-    # Print the summary of the regression
     print(results.summary())
     print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
@@ -126,11 +125,11 @@ def remove_outliers(file, column):
 	Q3 = data[column].quantile(0.75)
 	IQR = Q3 - Q1
 
-    # Define bounds for the outliers
+    # Q1 Q3
 	lower_bound = Q1 - 1.5 * IQR
 	upper_bound = Q3 + 1.5 * IQR
 
-    # Filter out outliers
+    # Filter based on Q1 -Q3
 	filtered_data = data[(data[column] >= lower_bound) & (data[column] <= upper_bound)]
 	# output_path = '../../data/shopping_trends_filtered.csv'  
 	# data.to_csv(output_path, index=False)
