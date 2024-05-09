@@ -26,6 +26,8 @@ links for datasets used in CA:
 7.# shopping_trends_updated.csv
 	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EarpfBr_ZvlAlkYHhJ2gY9QB5aMgOFQAuKXHUwICXIiPyg?e=rf4sUN
 
+8.# shopping_trends_filtered.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ERriD8uuQkFIndaHw1tyT_cBb36HB4L0lZBLNEP1M_FW8w?e=XmCOMt
 	
 
 rows remove from recorded_crime_incidents.csv
@@ -41,6 +43,7 @@ select top 10 highest offences from csv file with columns year, offence type.
 how to create method to check correlation of two datasets.
 check covariance
 covariance heatmap 
+remove outliers
 
 Other resources:
 

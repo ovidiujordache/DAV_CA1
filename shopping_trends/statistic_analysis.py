@@ -5,6 +5,20 @@ BLUE='\033[94m'
 GREEN = '\033[92m'
 RED = '\033[91m'
 END = '\033[0m'  # default color
+
+
+
+
+import pandas as pd
+
+
+
+
+
+
+
+
+
 def correlation(file,x_,y_):
 	print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 	data = pd.read_csv(file)
@@ -105,9 +119,28 @@ def simple_linear_regression(file,x_,y_):
     print(results.summary())
     print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
 
+def remove_outliers(file, column):
+	data = pd.read_csv(file)
+ 
+	Q1 = data[column].quantile(0.25)
+	Q3 = data[column].quantile(0.75)
+	IQR = Q3 - Q1
+
+    # Define bounds for the outliers
+	lower_bound = Q1 - 1.5 * IQR
+	upper_bound = Q3 + 1.5 * IQR
+
+    # Filter out outliers
+	filtered_data = data[(data[column] >= lower_bound) & (data[column] <= upper_bound)]
+	# output_path = '../../data/shopping_trends_filtered.csv'  
+	# data.to_csv(output_path, index=False)
+	return filtered_data
+
 
 #Original Data file - No Salary Column -> see add_salary_column.py
 
+
+#file_o is original data file
 file_o = '../../data/shopping_trends.csv'
 
 
@@ -122,17 +155,23 @@ linear_regression(file_o,'Purchase Amount (USD)','Previous Purchases')
 
 #Data with salary column added
 
+#file_s is original+SALARY Column added
 file_s = '../../data/shopping_trends_updated.csv'
-correlation(file_s,'Salary','Purchase Amount (USD)')
-correlation(file_s,'Salary','Previous Purchases')
+
+filtered_data=remove_outliers(file_s,"Salary")
+
+#file_f is Filtered Data No outliers.
+file_f='../../data/shopping_trends_filtered.csv'
+correlation(file_f,'Salary','Purchase Amount (USD)')
+correlation(file_f,'Salary','Previous Purchases')
 
 
-linear_regression(file_s,'Salary','Purchase Amount (USD)')
-linear_regression(file_s,'Salary','Previous Purchases')
+linear_regression(file_f,'Salary','Purchase Amount (USD)')
+linear_regression(file_f,'Salary','Previous Purchases')
 
 columns_covariance1 = ['Age', 'Purchase Amount (USD)', 'Review Rating', 'Previous Purchases', 'Salary']
-calculate_covariance(file_s,columns_covariance1)
+calculate_covariance(file_f,columns_covariance1)
 
-simple_linear_regression(file_s,'Purchase Amount (USD)','Purchase Amount (USD)')
+simple_linear_regression(file_f,'Purchase Amount (USD)','Purchase Amount (USD)')
 
-simple_linear_regression(file_s,'Purchase Amount (USD)','Previous Purchases')
+simple_linear_regression(file_f,'Purchase Amount (USD)','Previous Purchases')
