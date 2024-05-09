@@ -20,6 +20,14 @@ links for datasets used in CA:
 	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ETeGJNoN24ZNs-VltHLTl5wBEvIQ3RH1d6Emilhe-J9vvQ?e=195KBn
 
 
+
+#NEW DATA
+
+7.# shopping_trends_updated.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EarpfBr_ZvlAlkYHhJ2gY9QB5aMgOFQAuKXHUwICXIiPyg?e=rf4sUN
+
+	
+
 rows remove from recorded_crime_incidents.csv
 	- 111475, -98603,-14803,-54208,-59147
 

@@ -37,7 +37,20 @@ def correlation(file,x_,y_):
 
 	print("---------------------------------------------------------------")
     # Print the correlation coefficient and p-value
-	
+
+def calculate_covariance(file,columns):
+ 
+    data = pd.read_csv(file)
+
+
+    
+    numerical_data = data[columns]
+    covariance_matrix = numerical_data.cov()
+    plt.figure(figsize=(10, 8))
+    sb.heatmap(covariance_matrix, annot=True, fmt=".2f", cmap='coolwarm')
+    plt.title('Covariance Matrix Heatmap')
+    plt.show()
+    # covariance_matrix.to_csv('covariance_matrix.csv')	
 
 def linear_regression(file, x_, y_):
     global BLUE
@@ -63,20 +76,35 @@ def linear_regression(file, x_, y_):
     plt.show()
 
 
-def calculate_covariance(file):
-    # Load the data from a CSV file
+
+
+
+def simple_linear_regression(file,x_,y_):
+    # Load the data
     data = pd.read_csv(file)
+    
+    # Ensure the data contains the necessary columns
+    if x_ not in data.columns or y_ not in data.columns:
+        print(f"The columns{x_} or/and {y_} are not present in the dataset.")
+        return
 
-    # Select only the numerical columns for covariance calculation
-    numerical_data = data[['Age', 'Purchase Amount (USD)', 'Review Rating', 'Previous Purchases', 'Salary']]
+    # Define the predictor (independent) and response (dependent) variables
+    X = data[x_]  # Predictor variable
+    y = data[y_]  # Dependent variable
 
-    # Calculate the covariance matrix
-    covariance_matrix = numerical_data.cov()
-    plt.figure(figsize=(10, 8))
-    sb.heatmap(covariance_matrix, annot=True, fmt=".2f", cmap='coolwarm')
-    plt.title('Covariance Matrix Heatmap')
-    plt.show()
-    # covariance_matrix.to_csv('covariance_matrix.csv')
+    # Add a constant to the model (the intercept)
+    X = sm.add_constant(X)
+
+    # Create a model object
+    model = sm.OLS(y, X)
+
+    # Fit the model
+    results = model.fit()
+
+    # Print the summary of the regression
+    print(results.summary())
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+
 
 #Original Data file - No Salary Column -> see add_salary_column.py
 
@@ -101,5 +129,10 @@ correlation(file_s,'Salary','Previous Purchases')
 
 linear_regression(file_s,'Salary','Purchase Amount (USD)')
 linear_regression(file_s,'Salary','Previous Purchases')
-calculate_covariance(file_s)
 
+columns_covariance1 = ['Age', 'Purchase Amount (USD)', 'Review Rating', 'Previous Purchases', 'Salary']
+calculate_covariance(file_s,columns_covariance1)
+
+simple_linear_regression(file_s,'Purchase Amount (USD)','Purchase Amount (USD)')
+
+simple_linear_regression(file_s,'Purchase Amount (USD)','Previous Purchases')

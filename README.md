@@ -37,6 +37,6 @@ Hypothesis in laymen terms:
  ### Expenditure on Culture 2008-2016
  ![Alt text](./images/expenditure_culture.png?raw=true)
 
- ## Failed attemptwith this data.Data has temporal dimension(Year) which is common across all datasets.Crime and economy(unemployment) NO CORRELATION. 
+ ## Failed attempt with this data.Data has temporal dimension(Year) which is common across all datasets.
  # NEW DATA.Customer Purchases. source. Kaggle.com
  ### Added a column "Salary" , a random number created using "purchases" and "amount" with a seed of (42). 

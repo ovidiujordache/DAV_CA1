@@ -32,14 +32,14 @@ from sklearn.preprocessing import MinMaxScaler  # Importing MinMaxScaler from sk
 from sklearn.metrics import adjusted_rand_score
 
 
-
+import statsmodels.api as sm
 
 
 __all__=[	"GoogleDrive",
 			"plt","sb",
 			"np","pd",
 			"pg",
-			"mplot3d",
+			"mplot3d","sm",
 			"sch","squareform","pearsonr","linkage","dendrogram","cut_tree",
 			"make_blobs","AgglomerativeClustering","StandardScaler","KMeans","MinMaxScaler","adjusted_rand_score",
 			];
