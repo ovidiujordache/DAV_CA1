@@ -64,5 +64,24 @@ Hypothesis in laymen terms:
    ### salary   vs purchased amount shipping type
  ![Alt text](./images/salary_purchased_amount_shipping_type.png?raw=true)
 
- 
+
  # Another Attempt. Using wine chemical components/characteristics to find clusters  
+
+
+   ### Correlation Alohol Prioline
+ ![Alt text](./images/correlation_alcohol_prioline.png?raw=true)
+
+
+   ### Correlation Color Intensity Hue
+ ![Alt text](./images/corr_color_hue.png?raw=true)
+
+
+   ### Multiple Regression 1st part
+ ![Alt text](./images/multiple_regression1.png?raw=true)
+
+
+   ### Multiple Regression 2nd part
+ ![Alt text](./images/multiple_regression2.png?raw=true)
+
+   ### Principal Component 
+ ![Alt text](./images/principal_component.png?raw=true)
