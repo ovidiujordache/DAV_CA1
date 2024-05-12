@@ -3,7 +3,7 @@
 linkf of datasets.csv are in description.
 To run code  out of the box:
 1. Unzip data folder.
-2. code looks for ../data/name_of_file.csv --two levels deep.
+2. code looks for ../data/name_of_file.csv 
 3. In  /main/ __init__.py  is  where imports live and code
 5. list of all installed packages can be found in dav_ca1_packages_list.txt or dav_ca1_packages_list.yml
 6.Link to files provided on OneDrive
@@ -49,5 +49,20 @@ Hypothesis in laymen terms:
  ## Failed attempt with this data.Data has temporal dimension(Year) which is common across all datasets.
  # NEW DATA.Customer Purchases. source. Kaggle.com
  ### Added a column "Salary" , a random number created using "purchases" and "amount" with a seed of (42). 
+ ### correlation salary   purchase_amount
+ ![Alt text](./images/correlation_salary_purchase_amount.png?raw=true)
+ ### correlation salary  previous purchase
 
+ ![Alt text](./images/salary_previous_purchases.png?raw=true)
+  ### actual vs predicted
+ 
+ ![Alt text](./images/actual_vs_predicted.png?raw=true)
+
+   ### salary Promo Code Used
+ ![Alt text](./images/salary_promo.png?raw=true)
+
+   ### salary   vs purchased amount shipping type
+ ![Alt text](./images/salary_purchased_amount_shipping_type.png?raw=true)
+
+ 
  # Another Attempt. Using wine chemical components/characteristics to find clusters  
