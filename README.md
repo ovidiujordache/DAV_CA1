@@ -83,6 +83,6 @@ Hypothesis in laymen terms:
    ### Multiple Regression 2nd part
  ![Alt text](./images/multiple_regression2.png?raw=true)
 
-   ### Principal Component :Looks like based on various components
-   ## we have 3 labels. Probably Red,White, Rose
+   ### Principal Component :Looks like  we might 
+   ### have 3 Principal Components . Probably Red,White, Rose
  ![Alt text](./images/principal_component.png?raw=true)
