@@ -1,34 +1,5 @@
 Data Analysis and Visualization Module.
 CA1 50%. Due 28 April 2024
-links for datasets used in CA:
-
-1.#recorded_crime_incidents.csv
-	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EYKqfi1gVrtKljic4s7h3MkB9Cw3laqAnzTvjjIrD6urWg?e=Lwz4sJ
-2.#expenditure_culture.csv
- 	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EUmxpdo-669JvlV-MrVH2S0BHPXzrr46Nv7WhXYWInv-4Q?e=yUZp5E
-
-3.#difficulty_making_ends_meet.csv
-	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EVV7KmqhCEFGgnBjegrtuAwB-2xftqJCIuFJtv260VheAQ?e=L0Una9
-
-4.#education_third_level.csv
-	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EQkqk4w7oK1Ik0fbnz4JJFQB5yt9CmoSebOqAKUAJxS-kQ?e=RQVVKt
-	
-5.#live_register.csv
-	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EW83WQKqZydBrgi2KX9lK0ABT1Tr85V14cUVhVRgtcyLyg?e=oMSrl9
-
-6.#poverty_rates.csv
-	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ETeGJNoN24ZNs-VltHLTl5wBEvIQ3RH1d6Emilhe-J9vvQ?e=195KBn
-
-
-
-#NEW DATA
-
-7.# shopping_trends_updated.csv
-	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EarpfBr_ZvlAlkYHhJ2gY9QB5aMgOFQAuKXHUwICXIiPyg?e=rf4sUN
-
-8.# shopping_trends_filtered.csv
-	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ERriD8uuQkFIndaHw1tyT_cBb36HB4L0lZBLNEP1M_FW8w?e=XmCOMt
-	
 
 rows remove from recorded_crime_incidents.csv
 	- 111475, -98603,-14803,-54208,-59147
@@ -38,12 +9,37 @@ rows remove from recorded_crime_incidents.csv
 Copilot prompts:
 
 combine quarters of years for recorded_crime_incidents.csv
+
 delete rows which have more than this columns . number =6. columns name =STATISTIC Label	Quarter	Garda Division	Type of Offence	UNIT	VALUE
+
 select top 10 highest offences from csv file with columns year, offence type.
+
 how to create method to check correlation of two datasets.
+
 check covariance
+
 covariance heatmap 
+
 remove outliers
 
+add constant to regression , use categorical variables , 
+
+explain this columns for wine characteristics 
+
+multiple regression for many columns 
+
+explain results of multiple regression dependant variable Alcohol/ Proline/ Ash
+
+
+which of these chemicals are more prevalent into white wines and which into red wines
+
+kmeans explained python , given two sets of data to be combined Red Wine, White Wine.
+
+hierachical clustering for multiple categories.
+
+how many principal components and why ??
+
 Other resources:
+
+
 

@@ -1,4 +1,11 @@
-from __init__ import *
+import sys
+from pathlib import Path
+
+parent_dir = str(Path(__file__).resolve().parent.parent)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
+from main import *
 
 
 
@@ -7,8 +14,8 @@ from __init__ import *
 
 #run file once
 # downloaded data
-def add_salary_column():
-    data_path = '../../data/shopping_trends.csv' 
+def add_salary_column(output_path_):
+    data_path = '../data/shopping_trends.csv' 
     data = pd.read_csv(data_path)
 
     max_purchases = data['Previous Purchases'].max()
@@ -26,8 +33,8 @@ def add_salary_column():
     data['Salary'] = data['Salary'].astype(int)
 
 
-    output_path = '../../data/shopping_trends_updated.csv'  
-    data.to_csv(output_path, index=False)
+ 
+    data.to_csv(output_path_, index=False)
 
 #runs once only
 #uncomment method calll to run once
@@ -35,32 +42,8 @@ def add_salary_column():
 # add_salary_column()
 
 
-def convert_yes_no_to_binary(file, columns_to_convert):
 
-    try:
-
-        data = pd.read_csv(file)
-
-
-        replacement_dict = {'Yes': 1, 'No': 0}
-
-   
-        for column in columns_to_convert:
-            if column in data.columns:
-                data[column] = data[column].replace(replacement_dict)
-            else:
-                print(f"The column '{column}' does not exist in the dataset.")
-
-        output_path = '../../data/shopping_trends_updated.csv'  
-        data.to_csv(output_path, index=False)  
-        
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return None
-
-
-file_to_convert='../../data/shopping_trends_updated.csv'
+file='../data/shopping_trends_updated.csv'   
 columns_to_convert = ['Subscription Status', 'Discount Applied', 'Promo Code Used']
 #run once
-#uncomment method call
-# convert_yes_no_to_binary(file_to_convert,columns_to_convert)
+# add_salary_column(file)

@@ -1,0 +1,35 @@
+links for datasets used in CA:
+
+1.#recorded_crime_incidents.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EYKqfi1gVrtKljic4s7h3MkB9Cw3laqAnzTvjjIrD6urWg?e=Lwz4sJ
+2.#expenditure_culture.csv
+ 	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EUmxpdo-669JvlV-MrVH2S0BHPXzrr46Nv7WhXYWInv-4Q?e=yUZp5E
+
+3.#crime_filtered.csv
+
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ETdr_UhLT11Or2i-TilVP7IBQYgtMoUdzxBOsL2eWzixIQ?e=pzBzf4
+
+4.#education_third_level.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EQkqk4w7oK1Ik0fbnz4JJFQB5yt9CmoSebOqAKUAJxS-kQ?e=RQVVKt
+	
+5.#live_register.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EW83WQKqZydBrgi2KX9lK0ABT1Tr85V14cUVhVRgtcyLyg?e=oMSrl9
+
+6.#poverty_rates.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ETeGJNoN24ZNs-VltHLTl5wBEvIQ3RH1d6Emilhe-J9vvQ?e=195KBn
+
+
+
+#NEW DATA
+8.# shopping_trends.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EQ_4567RnwpAidvpXJosYuABdhm64DIecpVx5AY5tmYPcg?e=bs2sdw
+
+7.# shopping_trends_updated.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/EarpfBr_ZvlAlkYHhJ2gY9QB5aMgOFQAuKXHUwICXIiPyg?e=rf4sUN
+
+#NEW DATA ONCE MORE, ANOTHER ATTEMPT
+
+9.# wine.csv
+	https://studentdkit-my.sharepoint.com/:x:/g/personal/d00187472_student_dkit_ie/ETqqBHR3fGBKpm9XLb71UsUB7NAjHPlSQAdZIzlZvzawBQ?e=Qmycer
+
+	

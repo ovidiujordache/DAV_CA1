@@ -1,7 +1,14 @@
-from __init__ import *
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sb
+import sys
+from pathlib import Path
+
+# Get the parent directory of the current script's directory
+parent_dir = str(Path(__file__).resolve().parent.parent)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
+from main import *
+
+
 
 def analyze_correlation(data1, data2, year_col1, value_col1, year_col2, value_col2,
                         rename_col1, rename_col2, title="Correlation Plot"):

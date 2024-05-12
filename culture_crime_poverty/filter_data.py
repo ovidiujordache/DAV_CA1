@@ -1,5 +1,15 @@
+import sys
+from pathlib import Path
 
-from __init__ import *
+parent_dir = str(Path(__file__).resolve().parent.parent)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
+from main import *
+
+from crime_charts import *
+from  correlation import *
+
 def drop_rows(df, column_, start_, end_):
 
     exclude_ = range(start_, end_ + 1)

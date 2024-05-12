@@ -1,4 +1,13 @@
 
+
+linkf of datasets.csv are in description.
+To run code  out of the box:
+1. Unzip data folder.
+2. code looks for ../data/name_of_file.csv --two levels deep.
+3. In  /main/ __init__.py  is  where imports live and code
+5. list of all installed packages can be found in dav_ca1_packages_list.txt or dav_ca1_packages_list.yml
+6.Link to files provided on OneDrive
+
 HYPOTHESIS: When ECONOMY IS DOWN [files:(live register, poverty rates)]  CRIME  IS  UP [files:(crimes_in_ireland)].
 Also when ECONOMY IS DOWN, CULTURE IS UP [files:(third_level_entrance,expenditure_on_culture)].
 When ECONOMY IS BOOMING CULTURE AND ART IS DOWN. As a vivid example, during the height of the Celtic Tiger in 2002, 
@@ -40,3 +49,5 @@ Hypothesis in laymen terms:
  ## Failed attempt with this data.Data has temporal dimension(Year) which is common across all datasets.
  # NEW DATA.Customer Purchases. source. Kaggle.com
  ### Added a column "Salary" , a random number created using "purchases" and "amount" with a seed of (42). 
+
+ # Another Attempt. Using wine chemical components/characteristics to find clusters  

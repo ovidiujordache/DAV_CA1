@@ -1,10 +1,16 @@
+from filter_data import *
+
+from  correlation import *
+
+
 import sys
-import os
+from pathlib import Path
 
+parent_dir = str(Path(__file__).resolve().parent.parent)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
-
-
-from  __init__ import *
+from main import *
 
 def analyze_and_plot_crime_data(filepath):
 

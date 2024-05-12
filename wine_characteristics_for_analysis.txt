@@ -1,0 +1,25 @@
+	Alcohol: The percentage of alcohol by volume in the wine. This is a key characteristic affecting the flavor, body, and overall balance of the wine.
+
+    Malic Acid: A naturally occurring organic acid found in wine grapes which contributes to the wine's tartness and is also an indicator of the ripeness of the fruit at the time of harvest.
+
+    Ash: A measure of the total mineral content in the wine, which can influence the taste and mouthfeel.
+
+    Ash Alcanity: The alkalinity of ash measured as a pH value, reflecting the buffering capacity of the wine against acid.
+
+    Magnesium: A mineral present in wine, contributing to its overall health benefits and sometimes influencing the flavor profile.
+
+    Total Phenols: Compounds that contribute to the taste, color, and mouthfeel of the wine. Higher levels of phenols are generally associated with wines having more bitterness and astringency but also greater longevity and antioxidant properties.
+
+    Flavanoids: A subgroup of phenols, these are major contributors to the antioxidant properties of wine and also affect the color and taste.
+
+    Nonflavanoid Phenols: Another subgroup of phenols that, unlike flavanoids, do not contribute significantly to the color, but do affect taste and potential health benefits.
+
+    Proanthocyanins: A type of tannin found in grapes (and wine) that contributes to the color, bitterness, and astringency of wine.
+
+    Color Intensity: A measurement of the depth of color in the wine, which can indicate style and concentration.
+
+    Hue: The shade of the color in the wine, which can range from pale yellow for whites to deep purple for reds.
+
+    OD280: A measurement often used to gauge the protein stability of wine; it can also reflect the tannin content.
+
+    Proline: An amino acid that is found in higher concentrations in some wines and can be an indicator of wine quality (often higher in quality wines).
