@@ -33,8 +33,9 @@ white_wine_vars = ['Malic_Acid', 'Total_Phenols', 'Proanthocyanins', 'Color_Inte
 red_wine_vars = ['Flavanoids', 'Nonflavanoid_Phenols', 'Color_Intensity', 'Hue', 'OD280']
 
 
-calculate_covariance(data_wine,wine_columns_all)
-
+covariance_matrix=calculate_covariance(data_wine,wine_columns_all)
+eigenvalues,eigenvectors=eigenvalues_eigenvectors(covariance_matrix)
+feature_vector= create_feature_vector(eigenvalues,eigenvectors,2)
 
 multiple_regression(data_wine, list(filter(lambda x: x != 'Alcohol', wine_columns_all)) , 'Alcohol')
 
@@ -48,11 +49,47 @@ multiple_regression(data_wine, list(filter(lambda x: x != 'Ash', wine_columns_al
 hierarchical_clustering_all(data_wine, wine_columns_all)
 
 
-hierarchical_clustering_2columns(data_wine, white_wine_vars, red_wine_vars)
 
 
-kmean_PCA_2columns(data_wine, white_wine_vars, red_wine_vars)
+pca_data = pca_reduction(data_wine, n_components=2)
+
+kmean_clusters=kmean_clustering(data_wine,n_clusters=3)
+
+# 2. Hierarchical clustering
+clusters = hierarchical_clustering(pca_data, n_clusters=3)
+
+# 3. PCA for visualization
+plot_data_pca(pca_data, clusters)
+plot_hierarchical(data_wine)
+
+
+# 1. PCA Reduction
+reduced_data = pca_reduction_feature_vectors(data_wine, feature_vector)
+plot_data_pca_reduced(reduced_data)
+
+clusters = kmeans_clustering_feature_vectors(data_wine, feature_vector, 3)
+plot_kmeans_clusters(reduced_data, clusters)
 
 
 
-cluster_and_visualize_all_data_3d(data_wine, wine_columns_all)
+# hierarchical_clustering_2columns(data_wine, white_wine_vars, red_wine_vars)
+
+# kmean_PCA_2columns(data_wine, white_wine_vars, red_wine_vars)
+# cluster_and_visualize_all_data_3d(data_wine, wine_columns_all)
+
+red_wine_subindices = {
+    'Phenolic Composition': ['Flavanoids', 'Nonflavanoid_Phenols'],
+  'Color Intensity and Hue': ['Color_Intensity', 'Hue'],
+    'OD280': ['Hue', 'OD280']
+}
+
+
+white_wine_subindices = {
+    'Malic Acid and Total Phenols': ['Malic_Acid', 'Total_Phenols'],
+    'Proanthocyanins': ['Proanthocyanins'],
+  
+}
+
+    # 5 Components. Number of components taken from reserch paper.
+    # See references.txt    
+component_matrix(data_wine)

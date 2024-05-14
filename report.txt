@@ -1,7 +1,0 @@
-I have aggregated Crime data for each year across all divisions.
-It seems that crime is going down every year, from 2008 to 2016.
-Some specific crimes have an increase of 700% over period of 2008-2016.
-I might need to single out "Crimes" that have increased during 2008-2016.
-The reason for that is "Economy is down" during same period 2008-2009.
-Emphasizing on "Crimes" that increase during economic downturn.
-Filtered Data for Total Enrollments. Crime Rates, Expenditure on Culture.

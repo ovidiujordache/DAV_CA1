@@ -39,7 +39,28 @@ hierachical clustering for multiple categories.
 
 how many principal components and why ??
 
-Other resources:
+how to interpret eigenvalues
+
+how to interpret eigenvectors
+
+reduce dimensionality using feature vector
+
+PCA reduction with feature vectors
+
+Kmean clustering with feature vectors
+
+what would be the advantage of using feature vectors for kmeans clustering
+
+what would be the advantage of using feature vectors for PCA reduction
+
+component matrix 
+
+create subindices from component matrix
+
+explain rotated component matrix
+
+References:
+	Bai, X., Wang, L., & Li, H. (2019). Identification of red wine categories based on physicochemical properties. 2019 5th International Conference on Education Technology, Management and Humanities Science (ETMHS 2019). Taiyuan, China: Shanxi University of Finance and Economics
 
 
 

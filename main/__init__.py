@@ -30,10 +30,10 @@ from sklearn.cluster import KMeans   # Importing KMeans from sklearn.cluster for
 
 from sklearn.preprocessing import MinMaxScaler  # Importing MinMaxScaler from sklearn.preprocessing for data scaling
 from sklearn.metrics import adjusted_rand_score
-
+from sklearn.decomposition import FactorAnalysis
 
 import statsmodels.api as sm
-
+from factor_analyzer import Rotator
 
 __all__=[	"GoogleDrive",
 			"plt","sb",
@@ -53,6 +53,8 @@ __all__=[	"GoogleDrive",
 			"MinMaxScaler",
 			"adjusted_rand_score",
 			"PCA",
+            "FactorAnalysis",
+            "Rotator",
 			"remove_outliers",
 			"convert_to_binary",
 			"correlation",
@@ -66,7 +68,20 @@ __all__=[	"GoogleDrive",
 			"hierarchical_clustering_2columns",
 			"kmean_PCA_all",
 			"kmean_PCA_2columns",
+            "pca_reduction",
+            "pca_reduction_feature_vectors",
+            "kmean_clustering",
+          
+            "kmeans_clustering_feature_vectors",
+            "hierarchical_clustering",
+              "plot_hierarchical",
+            "plot_data_pca",
+            "plot_data_pca_reduced",
+            "plot_kmeans_clusters",
 			"cluster_and_visualize_all_data_3d",
+            "eigenvalues_eigenvectors",
+            "create_feature_vector",
+            "component_matrix"
 
 			];
 
@@ -182,7 +197,32 @@ def calculate_covariance(data_,columns):
     sb.heatmap(covariance_matrix, annot=True, fmt=".2f", cmap='coolwarm')
     plt.title('Covariance Matrix Heatmap')
     plt.show()
+    
+    return covariance_matrix
     # covariance_matrix.to_csv('covariance_matrix.csv')	
+
+def eigenvalues_eigenvectors(cov_matrix):
+    #eigenvectors and eigenvalues
+    print("************* EIGEN VECTORS--EIGEN VALUES")
+    eigenvalues, eigenvectors = np.linalg.eig(cov_matrix)
+    print("EIGEN VECTORS")
+    print(eigenvectors)
+    print("EIGEN VALUES")
+    print(eigenvalues)
+    return eigenvalues,eigenvectors
+
+def create_feature_vector(eigenvalues_, eigenvectors_, num_components):
+    # Sort eigenvalues and eigenvectors by eigenvalues in descending order
+    idx = np.argsort(eigenvalues_)[::-1]
+    sorted_eigenvalues = eigenvalues_[idx]
+    sorted_eigenvectors = eigenvectors_[:, idx]
+    
+    # Select the top 'num_components' eigenvectors
+    feature_vector = sorted_eigenvectors[:, :num_components]
+    
+    return feature_vector
+
+
 
 def linear_regression(data_, x_, y_):
     global BLUE
@@ -401,6 +441,97 @@ def plot_relationship_categorical(data_, x_, y_, category_column):
     plt.legend(title=category_column)
     plt.show()
 
+def pca_reduction_feature_vectors(data, feature_vector):
+    # Project the data onto the selected eigenvectors
+    reduced_data = np.dot(data, feature_vector)
+    
+    return reduced_data
+
+def kmeans_clustering_feature_vectors(data, feature_vector, n_clusters):
+    # Perform KMeans clustering on the reduced data
+    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    clusters = kmeans.fit_predict(np.dot(data, feature_vector))
+    
+    return clusters
+
+
+def pca_reduction(data, n_components):
+    # Standardize the data
+    scaler = StandardScaler()
+    scaled_data = scaler.fit_transform(data)
+    
+    # Perform PCA
+    pca = PCA(n_components=n_components)
+    pca_results = pca.fit_transform(scaled_data)
+    
+    return pca_results
+
+def kmean_clustering(data, n_clusters):
+    # Perform KMeans clustering
+    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    clusters = kmeans.fit_predict(data)
+    
+    return clusters
+
+#returns cluster labels for each data point 
+def hierarchical_clustering(data, n_clusters):
+    # Perform hierarchical clustering
+    clustering = AgglomerativeClustering(n_clusters=n_clusters)
+    clusters = clustering.fit_predict(data)
+    
+    return clusters
+
+def plot_data_pca(data, clusters):
+    # Prepare data for plotting
+    pca_df = pd.DataFrame(data, columns=['PC1', 'PC2'])
+    pca_df['Cluster'] = clusters
+    
+   
+    plt.figure(figsize=(12, 6))
+    sb.scatterplot(data=pca_df, x='PC1', y='PC2', hue='Cluster', palette='viridis')
+    plt.title('PCA Plot ')
+    plt.legend(title='Cluster')
+    plt.show()
+
+
+def plot_data_pca_reduced(reduced_data):
+    plt.figure(figsize=(8, 6))
+    plt.scatter(reduced_data[:, 0], reduced_data[:, 1], c='blue', alpha=0.5)
+    plt.title('PCA Reduction Plot')
+    plt.xlabel('PC1')
+    plt.ylabel('PC2')
+    plt.grid(True)
+    plt.show()
+
+def plot_kmeans_clusters(reduced_data, clusters, centroids=None):
+    plt.figure(figsize=(8, 6))
+    plt.scatter(reduced_data[:, 0], reduced_data[:, 1], c=clusters, cmap='viridis', s=50, alpha=0.5)
+    if centroids is not None:
+        plt.scatter(centroids[:, 0], centroids[:, 1], marker='o', c='red', s=200, edgecolors='k')
+    plt.title('KMeans Clustering Plot')
+    plt.xlabel('PC1')
+    plt.ylabel('PC2')
+    plt.grid(True)
+    plt.show()
+
+
+
+
+
+
+
+
+def plot_hierarchical(data):
+    # Calculate linkage matrix
+    Z = linkage(data, method='ward')  # You can adjust the method as needed
+    
+    # Plot dendrogram
+    plt.figure(figsize=(12, 6))
+    dendrogram(Z)
+    plt.title('Dendrogram for Hierarchical Clustering')
+    plt.xlabel('Sample Index')
+    plt.ylabel('Distance')
+    plt.show()
 
 
 
@@ -451,8 +582,8 @@ def kmean_PCA_all(data, columns, n_clusters=2):
 
 
 
-def kmean_PCA_2columns(data, white_vars, red_vars, n_clusters=2):
-
+def kmean_PCA_2columns(data_, white_vars, red_vars, n_clusters=2):
+    data=data_
     scaler = StandardScaler()
     white_scaled = scaler.fit_transform(data[white_vars])
     red_scaled = scaler.fit_transform(data[red_vars])
@@ -489,8 +620,9 @@ def kmean_PCA_2columns(data, white_vars, red_vars, n_clusters=2):
 
 
 
-def hierarchical_clustering_2columns(data, white_vars, red_vars):
 
+def hierarchical_clustering_2columns(data_, white_vars, red_vars):
+    data=data_
     white_wine_data = data[white_vars]
     scaler = StandardScaler()
     white_wine_scaled = scaler.fit_transform(white_wine_data)
@@ -507,7 +639,7 @@ def hierarchical_clustering_2columns(data, white_vars, red_vars):
 
     # Plotting the dendrogram for white wine data
     plt.figure(figsize=(10, 7))
-    plt.title("Hierarchical Clustering Dendrogram - White Wine")
+    plt.title("Hierarchical Clustering Dendrogram - White Wine ???")
     dendrogram(white_linkage, labels=white_wine_data.index, leaf_rotation=90, leaf_font_size=8)
     plt.xlabel("Sample Index")
     plt.ylabel("Distance")
@@ -515,7 +647,7 @@ def hierarchical_clustering_2columns(data, white_vars, red_vars):
 
     # Plotting the dendrogram for red wine data
     plt.figure(figsize=(10, 7))
-    plt.title("Hierarchical Clustering Dendrogram - Red Wine")
+    plt.title("Hierarchical Clustering Dendrogram - Red Wine ")
     dendrogram(red_linkage, labels=red_wine_data.index, leaf_rotation=90, leaf_font_size=8)
     plt.xlabel("Sample Index")
     plt.ylabel("Distance")
@@ -551,8 +683,8 @@ def hierarchical_clustering_all(data, columns, method='ward', figsize=(15, 10), 
     )
     plt.show()
 
-def cluster_and_visualize_all_data_3d(data, columns, n_clusters=3):
-
+def cluster_and_visualize_all_data_3d(data_, columns, n_clusters=3):
+    data=data_
     scaler = StandardScaler()
     scaled_data = scaler.fit_transform(data[columns])
     
@@ -585,3 +717,23 @@ def cluster_and_visualize_all_data_3d(data, columns, n_clusters=3):
 
 
 
+def component_matrix(data_):
+    data=data_
+    fa = FactorAnalysis(n_components=5)  # Specify the number of components
+    fa.fit(data)
+
+
+    component_matrix = pd.DataFrame(fa.components_.T, columns=['Component 1', 'Component 2', 'Component 3', 'Component 4', 'Component 5'])
+
+# Assign chemical trait names as row indices
+    component_matrix.index = data.columns
+
+# Display the loadings matrix
+    print("Component Matrix:\n")
+    print(component_matrix)
+    component_matrix_array =component_matrix.values
+    rotator = Rotator(method='varimax')
+    rotated_component_matrix_array = rotator.fit_transform(component_matrix_array)
+    rotated_component_matrix = pd.DataFrame(rotated_component_matrix_array, index=component_matrix.index, columns=component_matrix.columns)
+    print("Rotated Component Matrix:\n")
+    print(rotated_component_matrix)
