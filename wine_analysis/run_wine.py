@@ -94,6 +94,6 @@ white_wine_subindices = {
     # See references.txt    
 rotated_comp_matrix=rotated_component_matrix (component_matrix(data_wine))
 apply_weights(rotated_comp_matrix)
-red_wine_index = apply_weights(rotated_component_matrix)
-white_wine_index = apply_weights(rotated_component_matrix)
-bitter_wine_index = apply_weights(rotated_component_matrix)
+red_wine_index = apply_weights(rotated_comp_matrix)
+white_wine_index = apply_weights(rotated_comp_matrix)
+bitter_wine_index = apply_weights(rotated_comp_matrix)
