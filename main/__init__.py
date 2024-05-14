@@ -82,6 +82,8 @@ __all__=[	"GoogleDrive",
             "eigenvalues_eigenvectors",
             "create_feature_vector",
             "component_matrix"
+            ,"rotated_component_matrix",
+            "apply_weights"
 
 			];
 
@@ -583,7 +585,7 @@ def kmean_PCA_all(data, columns, n_clusters=2):
 
 
 def kmean_PCA_2columns(data_, white_vars, red_vars, n_clusters=2):
-    data=data_
+    data = pd.DataFrame(data_)
     scaler = StandardScaler()
     white_scaled = scaler.fit_transform(data[white_vars])
     red_scaled = scaler.fit_transform(data[red_vars])
@@ -622,7 +624,7 @@ def kmean_PCA_2columns(data_, white_vars, red_vars, n_clusters=2):
 
 
 def hierarchical_clustering_2columns(data_, white_vars, red_vars):
-    data=data_
+    data = pd.DataFrame(data_)
     white_wine_data = data[white_vars]
     scaler = StandardScaler()
     white_wine_scaled = scaler.fit_transform(white_wine_data)
@@ -684,7 +686,8 @@ def hierarchical_clustering_all(data, columns, method='ward', figsize=(15, 10), 
     plt.show()
 
 def cluster_and_visualize_all_data_3d(data_, columns, n_clusters=3):
-    data=data_
+
+    data = pd.DataFrame(data_)
     scaler = StandardScaler()
     scaled_data = scaler.fit_transform(data[columns])
     
@@ -719,21 +722,39 @@ def cluster_and_visualize_all_data_3d(data_, columns, n_clusters=3):
 
 def component_matrix(data_):
     data=data_
-    fa = FactorAnalysis(n_components=5)  # Specify the number of components
+    fa = FactorAnalysis(n_components=5)  #  the number of components
     fa.fit(data)
 
 
     component_matrix = pd.DataFrame(fa.components_.T, columns=['Component 1', 'Component 2', 'Component 3', 'Component 4', 'Component 5'])
 
-# Assign chemical trait names as row indices
+# chemical trait names as row indices
     component_matrix.index = data.columns
 
-# Display the loadings matrix
+
     print("Component Matrix:\n")
     print(component_matrix)
+    return component_matrix
+    
+
+def rotated_component_matrix(component_matrix):
     component_matrix_array =component_matrix.values
     rotator = Rotator(method='varimax')
     rotated_component_matrix_array = rotator.fit_transform(component_matrix_array)
     rotated_component_matrix = pd.DataFrame(rotated_component_matrix_array, index=component_matrix.index, columns=component_matrix.columns)
     print("Rotated Component Matrix:\n")
     print(rotated_component_matrix)
+    return rotated_component_matrix
+
+def apply_weights(rotated_component_matrix):
+    #  Proportional weights based on absolute values of loadings
+    weights = rotated_component_matrix.abs().sum()
+    weighted = rotated_component_matrix * weights
+    composite_indicators = weighted.sum()
+    print("Composite indicators")
+    print(composite_indicators)
+    composite_indicators_normalized = (composite_indicators - composite_indicators.min()) / (composite_indicators.max() - composite_indicators.min())
+    print("Composite indicators normalized")
+    print(composite_indicators_normalized)
+    
+    return composite_indicators

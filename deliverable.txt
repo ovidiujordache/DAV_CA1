@@ -1,0 +1,43 @@
+Data Loading
+
+The initial step involved loading the dataset from a csv file(wine.csv). The dataset was imported into a pandas DataFrame
+Data Cleaning
+
+Upon loading the data, a thorough cleaning process was conducted to address missing values, inconsistencies, and any data quality issues. This step ensured the reliability and accuracy of subsequent analyses.
+
+Outlier Removal
+
+Outliers were identified and removed from the dataset to prevent them from skewing the results of subsequent analyses. 
+
+Linear Regression
+
+A linear regression analysis was performed to model the relationship between variables in the dataset. This analysis aimed to identify any significant linear associations and provide insights into the underlying patterns in the data.It aimed to answer questions "Does red wine has more Magnesium ??","Does white wine has more hue??"
+
+Scatter Plot Visualization
+
+To visually explore the relationships between variables(Alcohol,Proline,Ash..etc), scatter plots were created. These plots helped in identifying trends, patterns, and potential correlations among different variables in the wine datase.
+
+Multivariate Analysis
+
+Multivariate analysis techniques were applied to investigate relationships between multiple variables simultaneously. This approach provided a comprehensive understanding of the interactions and dependencies within the wine dataset.
+
+Clustering
+
+Clustering algorithms, including KMeans and hierarchical clustering, were utilized to group similar data points together. This unsupervised learning technique enabled the identification of distinct clusters or patterns within the wine dataset.
+
+PCA (Principal Component Analysis)
+
+PCA was employed to reduce the dimensionality of the dataset while preserving its essential features. This technique facilitated a more concise representation of the wine data, making it easier to interpret and analyze.
+
+Component Matrix Analysis
+
+A component matrix was generated for the use of finding/creating subindices.
+
+Rotation of Component Matrix
+
+To simplify the interpretation of the component matrix, rotation techniques such as Varimax or Promax were applied. This step aimed to achieve a more straightforward and interpretable structure of the  components.
+
+Application of Weights to Component Matrix
+
+Weights were applied to the component matrix .In their study on the identification of red wine/white wine/bitter  Bai, Wang, and Li (2019) proposed five factors (Subindices) based on chemical characteristics .These are  bitter trophic factor, the visual evaluation factor, the hue factor, the pH factor and
+the mineral element factor. 

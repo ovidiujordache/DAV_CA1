@@ -14,15 +14,15 @@ file_wine='../data/wine.csv'
 
 data_wine=pd.read_csv(file_wine)
 
-print(data_wine.describe())
-correlation(data_wine,'Alcohol','Proline')
-correlation(data_wine,"Color_Intensity","Hue")
-correlation(data_wine,'Hue','Proline')
+# print(data_wine.describe())
+# correlation(data_wine,'Alcohol','Proline')
+# correlation(data_wine,"Color_Intensity","Hue")
+# correlation(data_wine,'Hue','Proline')
 
 
-linear_regression(data_wine,'Alcohol','Proline')
-linear_regression(data_wine,"Color_Intensity","Hue")
-linear_regression(data_wine,'Hue','Proline')
+# linear_regression(data_wine,'Alcohol','Proline')
+# linear_regression(data_wine,"Color_Intensity","Hue")
+# linear_regression(data_wine,'Hue','Proline')
 
 #Based on influencial characteristics what is more prevalent in white or red wines
 wine_columns_all = ['Alcohol', 'Malic_Acid', 'Ash', 'Ash_Alcanity', 'Magnesium', 'Total_Phenols', 'Flavanoids',
@@ -37,16 +37,16 @@ covariance_matrix=calculate_covariance(data_wine,wine_columns_all)
 eigenvalues,eigenvectors=eigenvalues_eigenvectors(covariance_matrix)
 feature_vector= create_feature_vector(eigenvalues,eigenvectors,2)
 
-multiple_regression(data_wine, list(filter(lambda x: x != 'Alcohol', wine_columns_all)) , 'Alcohol')
+# multiple_regression(data_wine, list(filter(lambda x: x != 'Alcohol', wine_columns_all)) , 'Alcohol')
 
 
-multiple_regression(data_wine,list(filter(lambda x: x != 'Proline', wine_columns_all)) , 'Proline')
+# multiple_regression(data_wine,list(filter(lambda x: x != 'Proline', wine_columns_all)) , 'Proline')
 
-multiple_regression(data_wine, list(filter(lambda x: x != 'Ash', wine_columns_all)), 'Ash')
+# multiple_regression(data_wine, list(filter(lambda x: x != 'Ash', wine_columns_all)), 'Ash')
 
 
 
-hierarchical_clustering_all(data_wine, wine_columns_all)
+# hierarchical_clustering_all(data_wine, wine_columns_all)
 
 
 
@@ -59,16 +59,16 @@ kmean_clusters=kmean_clustering(data_wine,n_clusters=3)
 clusters = hierarchical_clustering(pca_data, n_clusters=3)
 
 # 3. PCA for visualization
-plot_data_pca(pca_data, clusters)
-plot_hierarchical(data_wine)
+# plot_data_pca(pca_data, clusters)
+# plot_hierarchical(data_wine)
 
 
 # 1. PCA Reduction
-reduced_data = pca_reduction_feature_vectors(data_wine, feature_vector)
-plot_data_pca_reduced(reduced_data)
+# reduced_data = pca_reduction_feature_vectors(data_wine, feature_vector)
+# plot_data_pca_reduced(reduced_data)
 
-clusters = kmeans_clustering_feature_vectors(data_wine, feature_vector, 3)
-plot_kmeans_clusters(reduced_data, clusters)
+# clusters = kmeans_clustering_feature_vectors(data_wine, feature_vector, 3)
+# plot_kmeans_clusters(reduced_data, clusters)
 
 
 
@@ -92,4 +92,8 @@ white_wine_subindices = {
 
     # 5 Components. Number of components taken from reserch paper.
     # See references.txt    
-component_matrix(data_wine)
+rotated_comp_matrix=rotated_component_matrix (component_matrix(data_wine))
+apply_weights(rotated_comp_matrix)
+red_wine_index = apply_weights(rotated_component_matrix)
+white_wine_index = apply_weights(rotated_component_matrix)
+bitter_wine_index = apply_weights(rotated_component_matrix)
